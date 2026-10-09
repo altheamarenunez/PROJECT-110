@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotezy | Get a Quote</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="quote-page">
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar quote-navbar">
+            <div class="logo">QUOTEZY</div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="main.html">About</a>
+                <a href="main.html#how-it-works">How It Works</a>
+                <a href="index.html#team">Our Team</a>
+                <a href="app.html" class="nav-button active">
+                    Get a Quote
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- QUOTE GENERATOR -->
+    <main class="quote-main">
+
+        <p class="quote-label">— YOUR DAILY QUOTE —</p>
+
+        <h1 class="quote-title">
+            A Quote<br>For Your Day.
+        </h1>
+
+        <!-- QUOTE RESULT -->
+        <div class="quote-display" aria-live="polite">
+            <p id="quote">
+                Click the button below to discover a quote.
+            </p>
+
+            <p id="author">— Quotezy</p>
+        </div>
+
+        <!-- LOADING MESSAGE -->
+        <p id="loading" class="loading hidden">
+            Fetching your quote...
+        </p>
+
+        <!-- ERROR MESSAGE -->
+        <p id="errorMessage"
+           class="error-message hidden"
+           role="alert"></p>
+
+        <!-- BUTTONS -->
+        <div class="button-row">
+
+            <button type="button"
+                    id="getQuoteButton"
+                    class="reveal-button">
+                <span>GET A QUOTE</span>
+                <strong>➜</strong>
+            </button>
+
+            <button type="button"
+                    id="copyButton"
+                    class="copy-button">
+                COPY QUOTE
+            </button>
+
+        </div>
+
+        <!-- QUOTE COUNTER -->
+        <p class="quote-counter">
+            Quotes discovered:
+            <span id="quoteCount">0</span>
+        </p>
+
+        <p class="quote-message">
+            One quote. One thought. One better day.
+        </p>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="quote-footer">
+        <span>© 2026 Quotezy</span>
+        <span>One Quote. One Thought. One Better Day.</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

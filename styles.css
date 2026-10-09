@@ -1,0 +1,753 @@
+
+/* =========================
+   1. COLORS AND BASIC RESET
+========================= */
+
+:root {
+    --paper: #fff6e5;
+    --ink: #1b1b1b;
+    --coral: #ff6b57;
+    --yellow: #ffd23f;
+    --mint: #7fd8be;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   2. NAVIGATION
+========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 18px 40px;
+    background: var(--yellow);
+    border-bottom: 4px solid var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 4px 2px;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    border-bottom-color: var(--ink);
+}
+
+.nav-links a.nav-button {
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 8px 18px;
+    border: 3px solid var(--ink);
+    border-radius: 50px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.nav-links a.nav-button:hover {
+    background: var(--coral);
+    color: var(--ink);
+    transform: rotate(-3deg) scale(1.05);
+}
+
+
+/* =========================
+   3. SHARED ELEMENTS
+========================= */
+
+.small-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    line-height: 1.05;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.hero-button,
+.reveal-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--coral);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 16px 30px;
+    border: 4px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 6px 6px 0 var(--ink);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.hero-button:hover,
+.reveal-button:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--ink);
+}
+
+.hero-button:active,
+.reveal-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border-bottom: 3px solid var(--coral);
+}
+
+.text-link:hover {
+    background: var(--yellow);
+}
+
+
+/* =========================
+   4. HOMEPAGE
+========================= */
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 70px 40px;
+}
+
+.hero-left {
+    flex: 1 1 380px;
+}
+
+.hero-description {
+    max-width: 480px;
+    margin: 22px 0 30px;
+    font-size: 1.1rem;
+}
+
+.hero-right {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.quote-shape {
+    width: 320px;
+    height: 320px;
+    background: var(--mint);
+    border: 4px solid var(--ink);
+    border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+    box-shadow: 10px 10px 0 var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: wobble 6s ease-in-out infinite;
+}
+
+.big-quote {
+    font-size: 8rem;
+    line-height: 0.8;
+    font-weight: 900;
+    color: var(--coral);
+}
+
+.shape-text {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+@keyframes wobble {
+    0%, 100% {
+        border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+    }
+
+    50% {
+        border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
+    }
+}
+
+.home-intro {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 70px 40px;
+    text-align: center;
+}
+
+.home-intro p {
+    max-width: 650px;
+    margin: 0 auto 12px;
+}
+
+.home-intro .text-link {
+    color: var(--yellow);
+    border-bottom-color: var(--yellow);
+}
+
+.home-intro .text-link:hover {
+    color: var(--ink);
+}
+
+
+/* =========================
+   5. TEAM PROFILES
+========================= */
+
+.team-section {
+    padding: 70px 40px;
+    text-align: center;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.member-card {
+    width: 290px;
+    background: var(--white);
+    border: 4px solid var(--ink);
+    border-radius: 18px;
+    box-shadow: 8px 8px 0 var(--ink);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.member-card:nth-child(1) {
+    transform: rotate(-2deg);
+}
+
+.member-card:nth-child(2) {
+    transform: rotate(1.5deg);
+}
+
+.member-card:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.member-card:hover {
+    transform: rotate(0) translateY(-8px);
+}
+
+.member-image-container {
+    height: 260px;
+    background: var(--yellow);
+    border-bottom: 4px solid var(--ink);
+}
+
+.member-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-info {
+    padding: 20px;
+}
+
+.member-info h3 {
+    font-size: 1.3rem;
+    overflow-wrap: anywhere;
+}
+
+.member-info h4 {
+    display: inline-block;
+    background: var(--mint);
+    border: 2px solid var(--ink);
+    border-radius: 50px;
+    padding: 2px 12px;
+    margin: 8px 0 10px;
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   6. ABOUT PAGE
+========================= */
+
+.about-hero {
+    padding: 80px 40px;
+    background: var(--mint);
+    border-bottom: 4px solid var(--ink);
+}
+
+.about-hero p:last-child {
+    max-width: 550px;
+    margin-top: 22px;
+    font-size: 1.1rem;
+}
+
+.goal-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 70px 40px;
+}
+
+.section-number {
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 3px var(--ink);
+}
+
+.goal-content {
+    flex: 1 1 350px;
+    max-width: 650px;
+}
+
+.goal-content p {
+    margin-bottom: 14px;
+}
+
+.how-section {
+    padding: 70px 40px;
+    background: var(--yellow);
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px solid var(--ink);
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 35px;
+}
+
+.step-card {
+    flex: 1 1 240px;
+    background: var(--white);
+    border: 4px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 25px;
+    transition: transform 0.2s;
+}
+
+.step-card:hover {
+    transform: translateY(-6px);
+}
+
+.step-card span {
+    display: inline-block;
+    background: var(--coral);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.api-section {
+    padding: 70px 40px;
+    text-align: center;
+}
+
+.api-section a {
+    font-weight: 700;
+    color: var(--coral);
+    overflow-wrap: anywhere;
+}
+
+.final-cta {
+    padding: 80px 40px;
+    text-align: center;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+
+/* =========================
+   7. FOOTERS
+========================= */
+
+.footer,
+.quote-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 40px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: var(--yellow);
+    border-top: 4px solid var(--ink);
+}
+
+
+/* =========================
+   8. QUOTE GENERATOR PAGE
+========================= */
+
+body.quote-page {
+    background: var(--ink);
+    color: var(--paper);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-page .quote-navbar {
+    background: var(--ink);
+    border-bottom: 4px solid var(--yellow);
+}
+
+.quote-page .logo,
+.quote-page .nav-links a {
+    color: var(--paper);
+}
+
+.quote-page .nav-links a:hover,
+.quote-page .nav-links a.active {
+    border-bottom-color: var(--yellow);
+}
+
+.quote-page .nav-links a.nav-button {
+    background: var(--yellow);
+    color: var(--ink);
+    border-color: var(--yellow);
+}
+
+.quote-main {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 25px;
+    text-align: center;
+}
+
+.quote-label {
+    color: var(--yellow);
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.quote-title {
+    margin-bottom: 35px;
+}
+
+.quote-display {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border: 4px solid var(--yellow);
+    border-radius: 18px;
+    box-shadow: 10px 10px 0 var(--coral);
+    padding: 45px 30px 30px;
+    margin-bottom: 30px;
+    min-height: 200px;
+    overflow-wrap: anywhere;
+}
+
+.quote-display::before {
+    content: "“";
+    position: absolute;
+    top: -30px;
+    left: 25px;
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--coral);
+}
+
+#quote {
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    font-weight: 700;
+    font-style: italic;
+}
+
+#author {
+    margin-top: 18px;
+    font-weight: 800;
+    color: var(--coral);
+}
+
+.quote-display.pop {
+    animation: pop 0.45s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.94) rotate(-1deg);
+        opacity: 0.3;
+    }
+
+    60% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   9. LOADING AND ERROR MESSAGES
+   REMOVED PINK BACKGROUND
+========================= */
+
+.quote-page .loading {
+    background: transparent;
+    color: var(--yellow);
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 0 18px;
+    font-weight: 700;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.quote-page .error-message {
+    display: block;
+    background: transparent;
+    color: var(--paper);
+    font-weight: 700;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 0 18px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================
+   10. QUOTE BUTTONS
+========================= */
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.quote-page .reveal-button {
+    box-shadow: 6px 6px 0 var(--yellow);
+    border-color: var(--yellow);
+}
+
+.quote-page .reveal-button:hover {
+    box-shadow: 9px 9px 0 var(--yellow);
+}
+
+.copy-button {
+    background: transparent;
+    color: var(--paper);
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 16px 26px;
+    border: 4px dashed var(--mint);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.copy-button:hover {
+    background: var(--mint);
+    color: var(--ink);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 4px;
+}
+
+.quote-counter {
+    margin-top: 28px;
+    font-weight: 700;
+    color: var(--mint);
+}
+
+.quote-counter span {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--ink);
+    padding: 2px 12px;
+    border-radius: 50px;
+    margin-left: 4px;
+}
+
+.quote-message {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.quote-page .quote-footer {
+    background: var(--ink);
+    border-top: 4px solid var(--yellow);
+    color: var(--paper);
+}
+
+
+/* =========================
+   11. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar,
+    .hero,
+    .home-intro,
+    .team-section,
+    .about-hero,
+    .goal-section,
+    .how-section,
+    .api-section,
+    .final-cta {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .hero-left,
+    .hero-right {
+        flex-basis: 100%;
+    }
+
+    .quote-shape {
+        width: 250px;
+        height: 250px;
+    }
+
+    .section-number {
+        font-size: 4rem;
+    }
+
+    .member-card {
+        max-width: 100%;
+    }
+
+    .quote-main {
+        padding: 45px 20px;
+    }
+
+    .quote-display {
+        padding: 40px 20px 25px;
+    }
+
+    .hero-button,
+    .reveal-button,
+    .copy-button {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .footer,
+    .quote-footer {
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+}
